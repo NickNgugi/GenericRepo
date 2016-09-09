@@ -55,7 +55,7 @@
     <Compile Include="Address.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="GenericRepo.cs" />
-    <Compile Include="GenericRepoDb.cs" />
+    <Compile Include="GenericRepoContext.cs" />
     <Compile Include="IGenericRepo.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Order.cs" />

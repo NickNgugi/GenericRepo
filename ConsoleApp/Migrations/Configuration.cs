@@ -1,11 +1,8 @@
 namespace ConsoleApp.Migrations
 {
-    using System;
-    using System.Data.Entity;
     using System.Data.Entity.Migrations;
-    using System.Linq;
 
-    public sealed class Configuration : DbMigrationsConfiguration<GenericRepoDb>
+    public sealed class Configuration : DbMigrationsConfiguration<GenericRepoContext>
     {
         public Configuration()
         {
@@ -13,7 +10,7 @@ namespace ConsoleApp.Migrations
             AutomaticMigrationDataLossAllowed = true;
         }
 
-        protected override void Seed(GenericRepoDb context)
+        protected override void Seed(GenericRepoContext context)
         {
         }
     }

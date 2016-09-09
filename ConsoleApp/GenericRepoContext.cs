@@ -1,13 +1,12 @@
-﻿using System;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 
 namespace ConsoleApp
 {
-    public class GenericRepoDb : DbContext
+    public class GenericRepoContext : DbContext
     {
-        public GenericRepoDb()
+        public GenericRepoContext()
         {
-            Database.SetInitializer(new DropCreateDatabaseAlways<GenericRepoDb>());
+            Database.SetInitializer(new DropCreateDatabaseAlways<GenericRepoContext>());
         }
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Order> Orders { get; set; }

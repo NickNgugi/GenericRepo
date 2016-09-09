@@ -11,7 +11,7 @@ namespace ConsoleApp
         public virtual IList<T> GetAll(params Expression<Func<T, object>>[] navigationProperties)
         {
             List<T> list;
-            using (var context = new GenericRepoDb())
+            using (var context = new GenericRepoContext())
             {
                 IQueryable<T> dbQuery = context.Set<T>();
 
@@ -27,7 +27,7 @@ namespace ConsoleApp
         public virtual IList<T> GetList(Func<T, bool> where, params Expression<Func<T, object>>[] navigationProperties)
         {
             List<T> list;
-            using (var context = new GenericRepoDb())
+            using (var context = new GenericRepoContext())
             {
                 IQueryable<T> dbQuery = context.Set<T>();
 
@@ -45,7 +45,7 @@ namespace ConsoleApp
              params Expression<Func<T, object>>[] navigationProperties)
         {
             T item = null;
-            using (var context = new GenericRepoDb())
+            using (var context = new GenericRepoContext())
             {
                 IQueryable<T> dbQuery = context.Set<T>();
 
@@ -60,7 +60,7 @@ namespace ConsoleApp
         }
         public virtual void Add(params T[] items)
         {
-            using (var context = new GenericRepoDb())
+            using (var context = new GenericRepoContext())
             {
                 foreach (T item in items)
                 {
@@ -71,7 +71,7 @@ namespace ConsoleApp
         }
         public virtual void Update(params T[] items)
         {
-            using (var context = new GenericRepoDb())
+            using (var context = new GenericRepoContext())
             {
                 foreach (T item in items)
                 {
@@ -82,7 +82,7 @@ namespace ConsoleApp
         }
         public virtual void Remove(params T[] items)
         {
-            using (var context = new GenericRepoDb())
+            using (var context = new GenericRepoContext())
             {
                 foreach (T item in items)
                 {
@@ -93,7 +93,7 @@ namespace ConsoleApp
         }
         public virtual void Dispose()
         {
-            using (var context = new GenericRepoDb())
+            using (var context = new GenericRepoContext())
             {
                 context.Dispose();
             }
