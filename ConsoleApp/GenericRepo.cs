@@ -16,11 +16,11 @@ namespace ConsoleApp
                 IQueryable<T> dbQuery = context.Set<T>();
 
                 foreach (Expression<Func<T, object>> navigationProperty in navigationProperties)
-                    dbQuery = dbQuery.Include<T, object>(navigationProperty);
+                    dbQuery = dbQuery.Include(navigationProperty);
 
                 list = dbQuery
                     .AsNoTracking()
-                    .ToList<T>();
+                    .ToList();
             }
             return list;
         }
@@ -32,12 +32,12 @@ namespace ConsoleApp
                 IQueryable<T> dbQuery = context.Set<T>();
 
                 foreach (Expression<Func<T, object>> navigationProperty in navigationProperties)
-                    dbQuery = dbQuery.Include<T, object>(navigationProperty);
+                    dbQuery = dbQuery.Include(navigationProperty);
 
                 list = dbQuery
                     .AsNoTracking()
                     .Where(where)
-                    .ToList<T>();
+                    .ToList();
             }
             return list;
         }
@@ -50,7 +50,7 @@ namespace ConsoleApp
                 IQueryable<T> dbQuery = context.Set<T>();
 
                 foreach (Expression<Func<T, object>> navigationProperty in navigationProperties)
-                    dbQuery = dbQuery.Include<T, object>(navigationProperty);
+                    dbQuery = dbQuery.Include(navigationProperty);
 
                 item = dbQuery
                     .AsNoTracking()

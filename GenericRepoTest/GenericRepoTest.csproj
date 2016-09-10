@@ -62,8 +62,8 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SingleEntityTest.cs" />
-    <Compile Include="GraphEntitiesTest.cs" />
+    <Compile Include="DisconnectedSingleEntityTests.cs" />
+    <Compile Include="DisconnectedGraphEntityTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ConsoleApp\ConsoleApp.csproj">

@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="Address.cs" />
     <Compile Include="Customer.cs" />
+    <Compile Include="CustomerRepo.cs" />
     <Compile Include="GenericRepo.cs" />
     <Compile Include="GenericRepoContext.cs" />
     <Compile Include="IGenericRepo.cs" />

@@ -4,7 +4,7 @@ namespace ConsoleApp
 {
     public class GenericRepoContext : DbContext
     {
-        public GenericRepoContext()
+        public GenericRepoContext() : base("GenericRepoDb")
         {
             Database.SetInitializer(new DropCreateDatabaseAlways<GenericRepoContext>());
         }

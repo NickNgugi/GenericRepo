@@ -8,7 +8,7 @@ using System.Data.Entity;
 namespace GenericRepoTest
 {
     [TestClass]
-    public class SingleEntityTest
+    public class DisconnectedSingleEntityTests
     {
         [TestMethod]
         public void CanAddEntity()
