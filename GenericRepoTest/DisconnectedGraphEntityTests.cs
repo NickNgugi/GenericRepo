@@ -77,7 +77,8 @@ namespace GenericRepoTest
                 Name = oldName,
                 Orders = new List<Order> {
                     new Order { Name = "Order 10"},
-                    new Order { Name = "Order 11"}
+                    new Order { Name = "Order 11"},
+                    new Order { Name = "Order 12"}
                 }
             });
 
@@ -90,7 +91,11 @@ namespace GenericRepoTest
             }
 
             customer.Name = newName;
-            customer.Orders[0].Name = "Order 15";
+            customer.Orders[0].Name = "Order x";
+            customer.Orders.RemoveAt(1);
+            customer.Orders.AddRange(new List<Order> {
+                    new Order { Name = "Order xyz"}
+            });
 
             CustomerRepo diffRepo = new CustomerRepo();
             diffRepo.Update(customer);
@@ -102,8 +107,8 @@ namespace GenericRepoTest
             }
 
             Assert.AreEqual(newName, customer.Name);
-            Assert.AreEqual(2, customer.Orders.Count);
-            Assert.AreEqual(1, customer.Orders.Where(x => x.Name == "Order 15").ToList().Count);
+            Assert.AreEqual(3, customer.Orders.Count);
+            Assert.AreEqual(1, customer.Orders.Where(x => x.Name == "Order 12").ToList().Count);
         }
     }
 }
