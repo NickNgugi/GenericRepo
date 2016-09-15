@@ -68,7 +68,7 @@ namespace GenericRepoTest
             Assert.AreEqual(2, customer.Orders.Count);
         }
         [TestMethod]
-        public void CanUpdateParentAndUpdateChild()
+        public void CanUpdateParentAndChild()
         {
             string oldName = "Dan";
             GenericRepo<Customer> customerRepo = new GenericRepo<Customer>();

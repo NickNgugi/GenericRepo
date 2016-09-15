@@ -11,6 +11,7 @@ namespace ConsoleApp
         T GetSingle(Func<T, bool> where, params Expression<Func<T, object>>[] navigationProperties);
         void Add(params T[] items);
         void Update(params T[] items);
+        void Update(T item, Func<T, bool> where, params Expression<Func<T, object>>[] navigationProperties);
         void Remove(params T[] items);
         void Dispose();
     }

@@ -17,8 +17,7 @@ namespace ConsoleApp
         }
         public override void Update(params Customer[] items)
         {
-            base.Update(items);
-
+            //Get existing child orders for deletion
             List<Order> orders = new List<Order>();
             using (var context = new GenericRepoContext())
             {
@@ -26,6 +25,7 @@ namespace ConsoleApp
                     orders.AddRange(context.Orders.Where(x => x.CustomerId == item.Id));
             }
 
+            //Delete existing child records
             foreach (var item in orders)
                 _orderRepo.Remove(item);
 
@@ -33,6 +33,7 @@ namespace ConsoleApp
             {
                 foreach (var item in items)
                 {
+                    //Adding the parent prior to setting Entity State to Modified automatically wires up child FKs
                     context.Customers.Add(item);
                     context.Entry(item).State = EntityState.Modified;
                 }

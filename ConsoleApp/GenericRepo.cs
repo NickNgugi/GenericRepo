@@ -80,6 +80,23 @@ namespace ConsoleApp
                 context.SaveChanges();
             }
         }
+        public void Update(T item, Func<T, bool> where, params Expression<Func<T, object>>[] navigationProperties)
+        {
+            T parentChild = null;
+            using (var context = new GenericRepoContext())
+            {
+                IQueryable<T> dbQuery = context.Set<T>();
+                foreach (Expression<Func<T, object>> navigationProperty in navigationProperties)
+                {
+                    dbQuery = dbQuery.Include(navigationProperty);
+                    parentChild = dbQuery.FirstOrDefault(where);
+                }
+
+                item = dbQuery
+                    .AsNoTracking()
+                    .FirstOrDefault(where);
+            }
+        }
         public virtual void Remove(params T[] items)
         {
             using (var context = new GenericRepoContext())
